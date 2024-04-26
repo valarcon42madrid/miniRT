@@ -34,6 +34,9 @@ int	ft_dark_sp(t_vector	inter, t_vector	l, t_vector	campos, t_sphere *sp)
 	if ((a[3] > sp->radius && a[4] < sp->radius)
 		|| (a[3] < sp->radius && a[4] > sp->radius))
 		return (1);
+		a[0] = campos.x - sp->ct.x;
+	if (a[3] < ft_module(vec(l.x - inter.x, l.y - inter.y, l.z - inter.z)))
+		return (1);
 	return (0);
 }
 
