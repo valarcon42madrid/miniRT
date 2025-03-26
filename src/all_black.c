@@ -45,7 +45,7 @@ void	ft_all_black(t_conf *conf)
 	ft_make_black_img(d.m, conf);
 	d.window->mlx_win = mlx_new_window(d.window->mlx, 1080, 720, "MiniRT");
 	mlx_put_image_to_window(d.window->mlx, d.window->mlx_win, d.m->i, 0, 0);
-	//mlx_destroy_image(d.window->mlx, d.m->i); //comentado porque con el movimiento, si estas dentro de una figura, da segfault (antes tenia sentido borrar todo si iibamos a printer negro)
+	mlx_destroy_image(d.window->mlx, d.m->i); //comentado porque con el movimiento, si estas dentro de una figura, da segfault (antes tenia sentido borrar todo si iibamos a printer negro)
 	mlx_key_hook(d.window->mlx_win, key_hook, &d);
 	mlx_hook(d.window->mlx_win, 17, 1L << 17, ft_exit_hook, &d);
 	mlx_loop(d.window->mlx);
